@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container" id="welcome">
+        <form action="{{url_for('add')}}" method="post" class="form">
+            <input type="text" name="activity" class="form-group"><button type="submit">Add</button>
+        </form>
+       <!-- {%if current_user.is_authenticated%}
+
+           {%if not activity%}
+            <ul>
+                {%for active in activity%}
+                    {%if current_user.is_auathenticated and current_use.id==active.todo_id%}
+                    <li>{{active.activity}}</li>
+                    {%else%}
+                        <h2>no content</h2>
+                    {%endif%}
+                {%endfor%}
+                </ul>
+            {%else%}
+            <h2>no content</h2>
+            {%endif%}
+        {%else%}
+        
+        {%endif%} -->
+    </div>
+{% endblock content %} 

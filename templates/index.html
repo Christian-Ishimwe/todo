@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+            <div class="container" id="welcome">
+                <p>
+                    welcome, new here? <a href="{{url_for('register')}}">sign up!</a> or <a href="#">sign-in</a><br>
+                </p>
+                <div class="row">
+                    <a class="btn col-lg-5 btn-info" href="{{url_for('register')}}"><i class="fa-regular fa-registered"></i> Register</a> 
+                    <a href="{{url_for('login')}}" class="btn col-lg-5 btn-light"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+                </div>
+                
+            </div>
+        
+    
+{% endblock content %}

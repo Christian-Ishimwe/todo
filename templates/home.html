@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container" id="welcome">
+
+        <form action="{{url_for('add')}}" method="post" id="form">
+                {%with messages=get_flashed_messages()%}
+                {%if messages%}
+                    {%for message in messages%}
+                        <div class="alert alert-success " role="alert"><span>{{message}}</span></div>
+                    {%endfor%}
+                {%endif%}
+            {%endwith%}
+            <div class="row">
+                <div  class="col-8">
+                    <input type="text" name="activity" class="form-control" required placeholder="add activity">
+                </div>
+                <div class="col-4">
+
+                    <button type="submit" class="form-control"><i class="fa-light fa-plus"></i>Add</button>
+                </div>
+            
+            </div>
+        </form>
+
+        <div class="container-fluid" id="list">
+            
+            {%if activities%}
+        {%for active in activities%}
+            {%if current_user.is_authenticated and current_user.id==active.todo_id%}
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-primary">{{active.activity}}<a class="list-group-action" href="/delete/{{active.id}}"><i class="fa-solid fa-check"></i></a></li>
+            </ul>
+            {%else%}
+                {{pass}}
+            {%endif%}
+        {%endfor%}
+        
+        {%else%}
+        <p>No to do list for today</p>
+        {%endif%}
+        </div>
+    
+{% endblock content %} 

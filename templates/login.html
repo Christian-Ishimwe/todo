@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container" id="register">
+        <form class="form" action="{{url_for('login')}}" method="post" id="login">
+            <fieldset><legend>Login</legend></fieldset>
+            {%with messages=get_flashed_messages()%}
+                {%if messages%}
+                    {%for message in messages%}
+                        <div class="alert alert-danger">{{message}}</div>
+                    {%endfor%}
+                {%endif%}
+            {%endwith%}
+            <div class="form-group">
+                <label for="email">Email: </label>
+                <input type="email" name="email" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="password">Password: </label>
+                <input type='password' name="password" class="form-control">
+            </div>
+            <div class="row">
+                <button type="submit" class="btn btn-outline-primary btn-lg ">Login</button>
+            </div>
+            <span class="text-muted">new here? <a href="{{url_for('register')}}">sign up!</a></span>
+        </form>
+    </div>
+{% endblock content %}
